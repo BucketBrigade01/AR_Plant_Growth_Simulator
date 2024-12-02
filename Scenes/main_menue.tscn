@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://h5r2ljt7vpeq"]
+
+[ext_resource type="Script" path="res://Scenes/main_menue.gd" id="1_rln1e"]
+[ext_resource type="FontFile" uid="uid://daus0vqsi7xvl" path="res://Cabin_SemiCondensed-Bold.ttf" id="1_s0d0q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr61l"]
+bg_color = Color(0.388235, 0.556863, 0.392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1ljy"]
+bg_color = Color(0.367073, 0.599186, 0.572139, 1)
+border_color = Color(0.813022, 0.777892, 0.906024, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.137255)
+shadow_size = 13
+shadow_offset = Vector2(1, 1)
+
+[node name="MainMenue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rln1e")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hr61l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -106.0
+offset_right = 200.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.18783, 0.378671, 0.366206, 1)
+theme_override_fonts/font = ExtResource("1_s0d0q")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b1ljy")
+text = "START "
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.18783, 0.378671, 0.366206, 1)
+theme_override_fonts/font = ExtResource("1_s0d0q")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b1ljy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b1ljy")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -221.0
+offset_right = 370.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.444904, 0.710315, 0.613101, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_s0d0q")
+theme_override_font_sizes/font_size = 66
+text = "ARDUINO PLANT GROWTH SIM"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
